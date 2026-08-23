@@ -1,0 +1,62 @@
+name: Run notebooks and commit outputs
+
+on:
+  workflow_dispatch: {}
+  push:
+    branches:
+      - feature/compare-models-cv
+
+jobs:
+  run-notebooks:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          pip install papermill
+
+      - name: Run compare_models_cv.ipynb with papermill
+        run: |
+          set -e
+          papermill compare_models_cv.ipynb compare_models_cv.executed.ipynb
+          mv compare_models_cv.executed.ipynb compare_models_cv.ipynb
+
+      - name: Run analise_modelos_regressao_portfolio.ipynb with papermill
+        run: |
+          set -e
+          papermill analise_modelos_regressao_portfolio.ipynb analise_modelos_regressao_portfolio.executed.ipynb
+          mv analise_modelos_regressao_portfolio.executed.ipynb analise_modelos_regressao_portfolio.ipynb
+
+      - name: List generated files
+        run: |
+          ls -la
+          echo \"--- files containing models_comparison or predicoes_test ---\"
+          ls -la | grep models_comparison || true
+          ls -la | grep predicoes_test || true
+
+      - name: Commit and push outputs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config user.name \"github-actions[bot]\"
+          git config user.email \"41898282+github-actions[bot]@users.noreply.github.com\"
+          git add -A
+          git status --porcelain
+          if git diff --staged --quiet; then
+            echo \"No changes to commit\"
+          else
+            git commit -m \"chore: run notebooks and add generated outputs (models_comparison.csv, predicoes_test.csv, executed notebooks)\"
+            git push origin HEAD:feature/compare-models-cv
+          fi
