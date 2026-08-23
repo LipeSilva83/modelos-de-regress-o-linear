@@ -1,25 +1,23 @@
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/LipeSilva83/modelos-de-regress-o-linear/blob/main/analise_modelos_regressao_portfolio.ipynb)
+
 # modelos-de-regress-o-linear
 
-Este projeto contém um notebook de exemplo para análise e comparação de modelos de regressão linear aplicados a um conjunto de dados tabulares. O objetivo aqui é transformar este repositório em um artefato de portfólio profissional: instrutivo, reproduzível e com interpretações claras dos resultados.
+Este repositório contém notebooks que demonstram análise exploratória e modelagem usando regressão linear. O objetivo desta versão é transformar o trabalho em um artefato de portfólio profissional — reproduzível, documentado e com interpretação clara dos resultados.
 
 Principais arquivos
-- analise_modelos_regressao.ipynb  - notebook original (mantido)
-- analise_modelos_regressao_portfolio.ipynb - notebook preparado para portfólio (novo)
-- Preços_de_casas.csv             - dataset fornecido
+- `analise_modelos_regressao.ipynb` - notebook original (mantido)
+- `analise_modelos_regressao_portfolio.ipynb` - notebook preparado para portfólio (novo)
+- `Preços_de_casas.csv` - dataset original (mantido, com acento)
+- `Precos_de_casas.csv` - *apelido sem acento* (o notebook tenta criar este arquivo automaticamente a partir do original)
+- `requirements.txt` - dependências com versões travadas
 
-O que acrescentei
-- README mais completo (este arquivo).
-- requirements.txt com dependências usadas no notebook de portfólio.
-- notebook de portfólio (analise_modelos_regressao_portfolio.ipynb) que:
-  - carrega o dataset Preços_de_casas.csv
-  - faz limpeza e engenharia básica de features
-  - divide em treino/teste
-  - treina um LinearRegression (scikit-learn) e apresenta métricas: RMSE, MAE, R²
-  - mostra um summary de OLS via statsmodels para interpretação estatística
-  - inclui visualizações (predito x real, resíduos) e células de interpretação
+Resumo das alterações
+- Adicionado notebook voltado a portfólio com: carregamento robusto de dados, limpeza, divisão treino/teste, treinamento de LinearRegression (scikit-learn), avaliação (RMSE, MAE, R²), summary OLS (statsmodels) e visualizações com interpretação.
+- Adicionado `requirements.txt` com versões fixas para garantir reprodutibilidade.
+- Inserido badge "Open in Colab" para visualização rápida do notebook.
 
-Como executar (passo-a-passo curto)
-1) Criar e ativar um ambiente virtual (opcional mas recomendado):
+Como rodar (curto)
+1) Criar e ativar um virtualenv (opcional):
 
 ```bash
 python -m venv .venv
@@ -33,22 +31,15 @@ source .venv/bin/activate   # macOS / Linux
 pip install -r requirements.txt
 ```
 
-3) Abrir o notebook:
+3) Abrir o notebook `analise_modelos_regressao_portfolio.ipynb` com Jupyter Lab/Notebook ou abrir diretamente no Colab usando o badge acima.
 
-```bash
-jupyter lab
-# abrir analise_modelos_regressao_portfolio.ipynb
-```
+Nota sobre o arquivo de dados
+- O repositório contém `Preços_de_casas.csv` (com acento). O notebook tenta detectar e criar automaticamente `Precos_de_casas.csv` (sem acento) para evitar problemas de encoding/compatibilidade em alguns ambientes CI/OS. Se preferir, você pode renomeá-lo manualmente.
 
-Observações importantes
-- O notebook novo lê o arquivo `Preços_de_casas.csv` que está no repositório. Garanta que o nome do arquivo permaneça exatamente com o acento (ou ajuste o caminho no notebook).
-- Mantive o notebook original sem modificações — assim você preserva sua versão de trabalho.
-
-Sugestões futuras para melhorar a apresentação no portfólio
-- Adicionar um resumo executivo no README com as principais conclusões e métricas finais.
-- Incluir uma seção "Conjunto de dados" com estatísticas descritivas e possíveis limitações (viés, dados faltantes, outliers).
-- Demonstrar uma comparação entre modelos (Ridge/Lasso/RandomForest) com validação cruzada e tabela sumarizada com métricas.
-- Adicionar um notebook "slides" (nbconvert) ou uma apresentação PDF com os principais gráficos e conclusões para facilitar leitura pelo time de RH.
+Próximos passos sugeridos
+- Adicionar um resumo executivo no início do README com as principais métricas finais.
+- Comparar modelos (Ridge, Lasso, RandomForest) com validação cruzada e tabela sumarizada.
+- Exportar um relatório/PDF com os gráficos principais para apresentar no seu portfólio.
 
 Licença
-- Use uma licença apropriada (por exemplo MIT) se você pretende compartilhar publicamente.
+- Considere adicionar uma licença (ex.: MIT) se pretende compartilhar publicamente.
