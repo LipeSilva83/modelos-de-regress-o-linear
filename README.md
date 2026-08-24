@@ -19,9 +19,9 @@ NumPy: <img src="https://raw.githubusercontent.com/marwin1991/profile-technology
 
 Scikit-learn: <img src="https://raw.githubusercontent.com/marwin1991/profile-technology-icons/refs/heads/main/icons/scikit_learn.png" alt="Scikit-learn" width="50" height="50"/>
 
-Matplotlib: <img src="imagens/Matplotlib.png" width="40" height="60">
+Matplotlib: <img src="https://raw.githubusercontent.com/LipeSilva83/modelos-de-regress-o-linear/main/Arquivos/Imagens/Matplotlib.png" width="40" height="60"/>
 
-Seaborn: <img src="https://upload.wikimedia.org/wikipedia/commons/4/45/Logo-seaborn.png" alt="Python" width="40" height="60"/>
+Seaborn: <img src="https://raw.githubusercontent.com/LipeSilva83/modelos-de-regress-o-linear/main/Arquivos/Imagens/Seaborn.png" width="40" height="60"/>
 
 # 🎯 Objetivo do Projeto 
 
