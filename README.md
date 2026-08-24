@@ -21,4 +21,3 @@ Principais arquivos
 - `Precos_de_casas.csv` - *apelido sem acento* (o notebook tenta criar este arquivo automaticamente a partir do original)
 - `requirements.txt` - dependências com versões travadas
 
-Resum...
